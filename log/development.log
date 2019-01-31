@@ -1383,3 +1383,27 @@ Cannot render console from 190.102.85.211! Allowed networks: 127.0.0.1, ::1, 127
   [1m[35m (0.0ms)[0m  begin transaction
   [1m[36mSQL (0.2ms)[0m  [1mUPDATE "posts" SET "created_at" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["created_at", "2019-01-30 00:00:00.000000"], ["updated_at", "2019-01-31 18:29:04.267413"], ["id", 12]]
   [1m[35m (2.4ms)[0m  commit transaction
+
+
+Started GET "/posts/new" for 190.102.85.211 at 2019-01-31 18:31:43 +0000
+Cannot render console from 190.102.85.211! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 194ms (Views: 178.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for 190.102.85.211 at 2019-01-31 18:32:17 +0000
+Cannot render console from 190.102.85.211! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FSR2QzWGWKnXDGb3T/FvoXjaoa988xTIP9lppkoY+aU5fyKUB8F1T1ZKU3zGQ8HJe/JRBleid8uocg7eEBZ9UA==", "post"=>{"title"=>"Machine", "description"=>"The future of the humanity."}, "commit"=>"Create Post"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'utf8' for Post.):
+  app/controllers/posts_controller.rb:32:in `create'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.2ms)
